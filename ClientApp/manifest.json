@@ -1,7 +1,7 @@
 {
   "dir": "ltr",
   "lang": "en",
-  "name": "angular-material-app-pwa",
+  "name": "aspnetcore-material-universal-pwa",
   "scope": "/",
   "display": "standalone",
   "start_url": "./?utm_source=web_app_manifest",

@@ -1,7 +1,7 @@
 {
   "index": "/index.html",
   "appData": {
-    "name": "angular-material-app-pwa",
+    "name": "aspnetcore-material-universal-pwa",
     "description": "pwa"
   },
   "assetGroups": [
