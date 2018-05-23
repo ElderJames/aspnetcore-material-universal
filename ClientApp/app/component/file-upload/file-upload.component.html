@@ -1,0 +1,14 @@
+<div class="shriek-upload-container">
+  <div class="shriek-upload-select" *ngIf="!previewUrl">
+    <mat-icon class="shriek-upload-icon">add</mat-icon>
+    <div class="shriek-upload-text">Upload</div>
+    <div class="shriek-upload-inner">
+      <input type="file" class="shriek-upload-input" (change)="onFileSelect($event)">
+    </div>
+  </div>
+
+  <div class="shriek-upload-preview" (click)="removePreview()" *ngIf="previewUrl">
+    <img [src]="this.previewUrl" />
+  </div>
+
+</div>

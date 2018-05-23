@@ -1,0 +1,37 @@
+<div class="main-static">
+  <mat-card>
+    <mat-card-title>Base Table</mat-card-title>
+    <mat-card-content>
+      <shriek-table height="500" [columns]="data.columns" [data]="data.data"></shriek-table>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Hover Table</mat-card-title>
+    <mat-card-content>
+      <shriek-table height="500" [columns]="data.columns" [data]="data.data"></shriek-table>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Striped Table</mat-card-title>
+    <mat-card-content>
+      <shriek-table height="500" stripe="true" [columns]="data.columns" [data]="data.data"></shriek-table>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Bordered Table</mat-card-title>
+    <mat-card-content>
+      <shriek-table height="500" border="true" [columns]="data.columns" [data]="data.data"></shriek-table>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>All Table</mat-card-title>
+    <mat-card-content>
+      <shriek-table height="500" stripe="true" border="true" [columns]="data.columns" [data]="data.data"></shriek-table>
+    </mat-card-content>
+  </mat-card>
+
+</div>

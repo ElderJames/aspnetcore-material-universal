@@ -1,0 +1,11 @@
+<h4>基础用</h4>
+<shriek-table stripe="true" border="ture" [columns]="columnsDemo.columns" [data]="columnsDemo.data"></shriek-table>
+
+<h4>固定表头</h4>
+<shriek-table height="200" width="800" [columns]="columnsDemo.columns1" [data]="columnsDemo.data"></shriek-table>
+
+<h4>事件</h4>
+<shriek-table (onSelectChange)="onSelectChange($event)" (onSelectAll)="onSelectChange($event)" [columns]="columnsDemo.columns2"
+    [data]="columnsDemo.data"></shriek-table>
+
+<div>{{ selectData | json }}</div>

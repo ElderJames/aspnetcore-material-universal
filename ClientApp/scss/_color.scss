@@ -1,0 +1,13 @@
+@mixin shriek-theme-color() {
+  @each $name, $color in $shriek-theme-colors {
+
+    .shriek-background-#{$name} {
+      color: mat-color($color, default-contrast) !important;
+      background-color: mat-color($color, default) !important;
+    }
+
+    .shriek-#{$name} {
+      background-color: mat-color($color, default) !important;
+    }
+  }
+}

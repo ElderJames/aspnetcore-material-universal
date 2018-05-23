@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>分页</mat-card-title>
+  <mat-card-content>
+    <shriek-pagination align="center" total=1000></shriek-pagination>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>分页</mat-card-title>
+  <mat-card-content>
+    <shriek-pagination align="center" total=1000 (onPage)="page($event)"></shriek-pagination>
+    <div>当前页码：{{ currentPage }}</div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,15 @@
+<mat-card class="notification"
+          [class.notification-success]="data.type==='success'"
+          [class.notification-info]="data.type==='info'"
+          [class.notification-warn]="data.type==='warn'"
+          [class.notification-error]="data.type==='error'"
+>
+  <mat-card-subtitle class="notification-title">
+    {{data.title}}
+    <span style="flex: 1 1 1e-09px;"></span>
+    <button mat-icon-button>
+      <mat-icon (click)="action()">close</mat-icon>
+    </button>
+  </mat-card-subtitle>
+  <mat-card-content class="notification-content" [innerHTML]="data.message"></mat-card-content>
+</mat-card>

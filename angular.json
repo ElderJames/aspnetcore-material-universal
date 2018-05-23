@@ -1,0 +1,213 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "angular-material-app": {
+      "root": "",
+      "sourceRoot": "ClientApp",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "wwwroot/dist",
+            "index": "ClientApp/index.html",
+            "main": "ClientApp/main.ts",
+            "polyfills": "ClientApp/polyfills.ts",
+            "tsConfig": "ClientApp/tsconfig.app.json",
+            "assets": [
+              "ClientApp/assets/favicon.ico",
+              "ClientApp/assets"
+            ],
+            "styles": [
+              {
+                "input": "node_modules/normalize.css/normalize.css",
+                "bundleName": "lib"
+              },
+              {
+                "input": "node_modules/material-design-icons/iconfont/material-icons.css",
+                "bundleName": "lib"
+              },
+              {
+                "input": "node_modules/quill/dist/quill.snow.css",
+                "bundleName": "lib"
+              },
+              {
+                "input": "ClientApp/styles.scss",
+                "bundleName": "shriek-ui"
+              }
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "development": {
+              "extractCss": true
+            },
+            "github": {
+              "fileReplacements": [
+                {
+                  "replace": "ClientApp/environments/environment.ts",
+                  "with": "ClientApp/environments/environment.github.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            },
+            "ngsw": {
+              "fileReplacements": [
+                {
+                  "replace": "ClientApp/environments/environment.ts",
+                  "with": "ClientApp/environments/environment.ngsw.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "ClientApp/environments/environment.ts",
+                  "with": "ClientApp/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-material-app:build"
+          },
+          "configurations": {
+            "development": {
+              "browserTarget": "angular-material-app:build:development"
+            },
+            "github": {
+              "browserTarget": "angular-material-app:build:github"
+            },
+            "ngsw": {
+              "browserTarget": "angular-material-app:build:ngsw"
+            },
+            "production": {
+              "browserTarget": "angular-material-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-material-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "ClientApp/test.ts",
+            "polyfills": "ClientApp/polyfills.ts",
+            "tsConfig": "ClientApp/tsconfig.spec.json",
+            "karmaConfig": "ClientApp/karma.conf.js",
+            "styles": [
+              "styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "ClientApp/favicon.ico",
+              "ClientApp/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "ClientApp/tsconfig.app.json",
+              "ClientApp/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ssr": {
+      "root": "",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "ClientApp/dist-server",
+            "main": "ClientApp/main.server.ts",
+            "tsConfig": "ClientApp/tsconfig.server.json",
+            "progress": true
+          },
+          "configurations": {
+            "production": {
+              "optimization": false,
+              "outputHashing": "media",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "bundleDependencies": "all"
+            }
+          }
+        }
+      }
+    },
+    "angular-material-app-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "angular-material-app:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "angular-material-app"
+}

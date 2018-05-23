@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>高德地图</mat-card-title>
+  <mat-card-content>
+    <shriek-amap></shriek-amap>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>指定经纬度</mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput placeholder="经度" [(ngModel)]="lat">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="纬度" [(ngModel)]="lng">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="view()">查看</button>
+
+    <shriek-amap *ngIf="isView" [lat]="lat" [lng]="lng"></shriek-amap>
+  </mat-card-content>
+</mat-card>

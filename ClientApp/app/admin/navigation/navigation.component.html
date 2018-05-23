@@ -1,0 +1,16 @@
+<div class="navigation-container">
+  <div class="navigation-scrollbar-container">
+    <perfect-scrollbar>
+      <ng-container *ngFor="let navigation of navigationModel">
+        <shriek-nav-collapse *ngIf="navigation.type == 'collapse'" [item]="navigation"></shriek-nav-collapse>
+        <shriek-nav-item *ngIf="navigation.type=='item'" [item]="navigation"></shriek-nav-item>
+      </ng-container>
+    </perfect-scrollbar>
+  </div>
+
+  <div class="navigation-footer">
+    <a matRipple href="https://github.com/shriek/angular-material-app/issues" target="blank">
+      <mat-icon>help</mat-icon>
+      帮助与支持</a>
+  </div>
+</div>
