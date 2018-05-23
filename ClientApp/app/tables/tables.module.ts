@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 // import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
-import { TableModule } from '../component';
+import { TableModule, MaterailTableModule } from '../component';
 
 import { TablesComponent } from './tables.component';
 import { TablesRoutingModule } from './tables.routing';
@@ -12,7 +12,7 @@ import { DataTableService } from './datatable/datatable.service';
 // import { DynamicComponent } from './dynamic/dynamic.component';
 
 @NgModule({
-  imports: [SharedModule, TablesRoutingModule, TableModule],
+  imports: [SharedModule, TablesRoutingModule, TableModule, MaterailTableModule],
   declarations: [
     TablesComponent,
     StaticComponent,

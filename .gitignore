@@ -331,3 +331,5 @@ ASALocalRun/
 yarn.lock
 npm-shrinkwrap.json
 .vscode
+ClientApp/dist-server
+wwwroot/dist
