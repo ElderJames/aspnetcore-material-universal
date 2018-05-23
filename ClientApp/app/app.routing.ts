@@ -21,7 +21,7 @@ const routes: Routes = [
       //   loadChildren: './todo/todo.module#TodoModule'
       // },
       { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
-      // { path: 'forms', loadChildren: './forms/forms.module#FormModule' },
+      { path: 'forms', loadChildren: './forms/forms.module#FormModule' },
       {
         path: 'materials',
         loadChildren: './materials/materials.module#MaterialsModule'

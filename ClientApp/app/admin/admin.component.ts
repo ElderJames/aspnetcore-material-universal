@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 import { Observable, ReplaySubject, Subscription } from 'rxjs';
 import { ConfigService } from '../core/config.service';
@@ -69,9 +70,11 @@ export class AdminComponent implements OnInit {
       this.sidenavOpen = !isMobile;
     });
 
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 2000);
+    if (isPlatformBrowser) {
+      setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+      }, 2000);
+    }
   }
 
   /**
