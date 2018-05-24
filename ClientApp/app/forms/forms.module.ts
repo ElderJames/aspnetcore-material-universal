@@ -7,6 +7,7 @@ import { FormsRoutingModule } from './forms.routing';
 import { FormsComponent } from './forms.component';
 import { ElementsComponent } from './elements/elements.component';
 import { ValidationComponent } from './validation/validation.component';
+import { UeditorComponent } from './ueditor/ueditor.component';
 // import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ValidationComponent } from './validation/validation.component';
     FormsComponent,
     ElementsComponent,
     ValidationComponent,
+    UeditorComponent
     // EditorComponent
   ]
 })

@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsComponent } from './forms.component';
 import { ElementsComponent } from './elements/elements.component';
 import { ValidationComponent } from './validation/validation.component';
-// import { EditorComponent } from './editor/editor.component';
+import { UeditorComponent } from './ueditor/ueditor.component';
 
 const routes: Routes = [
   {
@@ -19,10 +19,10 @@ const routes: Routes = [
     path: 'validation',
     component: ValidationComponent
   },
-  // {
-  //   path: 'editor',
-  //   component: EditorComponent
-  // }
+  {
+    path: 'editor',
+    component: UeditorComponent
+  }
 ];
 
 @NgModule({
