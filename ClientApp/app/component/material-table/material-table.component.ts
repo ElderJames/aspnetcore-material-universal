@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
+import { SelectionModel } from '@angular/cdk/collections';
 
 /**
  * @title Table with pagination
@@ -10,13 +11,28 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
     templateUrl: 'material-table.component.html',
 })
 export class MaterailTableComponent implements OnInit {
-    displayedColumns = ['position', 'name', 'weight', 'symbol'];
+    displayedColumns = ['select', 'position', 'name', 'weight', 'symbol'];
     dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+    selection = new SelectionModel<PeriodicElement>(true, []);
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
 
     ngOnInit() {
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+    }
+
+    isAllSelected() {
+        const numSelected = this.selection.selected.length;
+        const numRows = this.dataSource.data.length;
+        return numSelected === numRows;
+    }
+    /** Selects all rows if they are not all selected; otherwise clear selection. */
+    masterToggle() {
+        this.isAllSelected() ?
+            this.selection.clear() :
+            this.dataSource.data.forEach(row => this.selection.select(row));
     }
 }
 
