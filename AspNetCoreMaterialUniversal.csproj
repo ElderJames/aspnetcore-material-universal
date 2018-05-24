@@ -49,18 +49,19 @@
 
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-    <!-- <Exec Command="npm run build" />
-    <Exec Command="npm run build:ssr" Condition=" '$(BuildServerSideRenderer)' == 'true' " /> -->
+    <Exec Command="npm run build" />
+    <Exec Command="npm run build:ssr" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
 
     <!-- Include the newly-built files in the publish output -->
-    <!-- <ItemGroup>
+    <ItemGroup>
       <DistFiles Include="wwwroot\dist\**; $(SpaRoot)dist-server\**;Dockerfile;.\extra\**" />
       <DistFiles Include="node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
       <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
         <RelativePath>%(DistFiles.Identity)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </ResolvedFileToPublish>
-    </ItemGroup> -->
+    </ItemGroup>
   </Target>
 
 </Project>
+
