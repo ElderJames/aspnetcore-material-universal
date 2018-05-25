@@ -9,7 +9,10 @@
  * 当升级编辑器时，可直接使用旧版配置文件替换新版配置文件,不用担心旧版配置文件中因缺少新功能所需的参数而导致脚本报错。
  **************************提示********************************/
 
-(function() {
+(function () {
+
+  if (typeof window === 'undefined')
+    return;
   /**
      * 编辑器资源文件根路径。它所表示的含义是：以编辑器实例化页面为当前路径，指向编辑器资源文件（即dialog等文件夹）的路径。
      * 鉴于很多同学在使用编辑器的时候出现的种种路径问题，此处强烈建议大家使用"相对于网站根目录的相对路径"进行配置。
@@ -146,10 +149,10 @@
 
     //主题配置项,默认是default。有需要的话也可以使用如下这样的方式来自动多主题切换，当然，前提条件是themes文件夹下存在对应的主题文件：
     //现有如下皮肤:default
-    ,theme:'notadd'
+    , theme: 'notadd'
     //,themePath:URL +"themes/"
 
-    ,zIndex : 1100     //编辑器层级的基数,默认是900
+    , zIndex: 1100     //编辑器层级的基数,默认是900
 
     //针对getAllHtml方法，会在对应的head标签中增加该编码设置。
     //,charset:"utf-8"
@@ -450,78 +453,78 @@
     //,allowDivTransToP:true      //允许进入编辑器的div标签自动变成p标签
     //,rgb2Hex:true               //默认产出的数据中的color自动从rgb格式变成16进制格式
 
-      // xss 过滤是否开启,inserthtml等操作
-      ,xssFilterRules: true
-      //input xss过滤
-      ,inputXssFilter: true
-      //output xss过滤
-      ,outputXssFilter: true
-      // xss过滤白名单 名单来源: https://raw.githubusercontent.com/leizongmin/js-xss/master/lib/default.js
-      ,whitList: {
-          a:      ['target', 'href', 'title', 'class', 'style'],
-          abbr:   ['title', 'class', 'style'],
-          address: ['class', 'style'],
-          area:   ['shape', 'coords', 'href', 'alt'],
-          article: [],
-          aside:  [],
-          audio:  ['autoplay', 'controls', 'loop', 'preload', 'src', 'class', 'style'],
-          b:      ['class', 'style'],
-          bdi:    ['dir'],
-          bdo:    ['dir'],
-          big:    [],
-          blockquote: ['cite', 'class', 'style'],
-          br:     [],
-          caption: ['class', 'style'],
-          center: [],
-          cite:   [],
-          code:   ['class', 'style'],
-          col:    ['align', 'valign', 'span', 'width', 'class', 'style'],
-          colgroup: ['align', 'valign', 'span', 'width', 'class', 'style'],
-          dd:     ['class', 'style'],
-          del:    ['datetime'],
-          details: ['open'],
-          div:    ['class', 'style'],
-          dl:     ['class', 'style'],
-          dt:     ['class', 'style'],
-          em:     ['class', 'style'],
-          font:   ['color', 'size', 'face'],
-          footer: [],
-          h1:     ['class', 'style'],
-          h2:     ['class', 'style'],
-          h3:     ['class', 'style'],
-          h4:     ['class', 'style'],
-          h5:     ['class', 'style'],
-          h6:     ['class', 'style'],
-          header: [],
-          hr:     [],
-          i:      ['class', 'style'],
-          img:    ['src', 'alt', 'title', 'width', 'height', 'id', '_src', '_url', 'loadingclass', 'class', 'data-latex'],
-          ins:    ['datetime'],
-          li:     ['class', 'style'],
-          mark:   [],
-          nav:    [],
-          ol:     ['class', 'style'],
-          p:      ['class', 'style'],
-          pre:    ['class', 'style'],
-          s:      [],
-          section:[],
-          small:  [],
-          span:   ['class', 'style'],
-          sub:    ['class', 'style'],
-          sup:    ['class', 'style'],
-          strong: ['class', 'style'],
-          table:  ['width', 'border', 'align', 'valign', 'class', 'style'],
-          tbody:  ['align', 'valign', 'class', 'style'],
-          td:     ['width', 'rowspan', 'colspan', 'align', 'valign', 'class', 'style'],
-          tfoot:  ['align', 'valign', 'class', 'style'],
-          th:     ['width', 'rowspan', 'colspan', 'align', 'valign', 'class', 'style'],
-          thead:  ['align', 'valign', 'class', 'style'],
-          tr:     ['rowspan', 'align', 'valign', 'class', 'style'],
-          tt:     [],
-          u:      [],
-          ul:     ['class', 'style'],
-          video:  ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width', 'class', 'style']
-      }
+    // xss 过滤是否开启,inserthtml等操作
+    , xssFilterRules: true
+    //input xss过滤
+    , inputXssFilter: true
+    //output xss过滤
+    , outputXssFilter: true
+    // xss过滤白名单 名单来源: https://raw.githubusercontent.com/leizongmin/js-xss/master/lib/default.js
+    , whitList: {
+      a: ['target', 'href', 'title', 'class', 'style'],
+      abbr: ['title', 'class', 'style'],
+      address: ['class', 'style'],
+      area: ['shape', 'coords', 'href', 'alt'],
+      article: [],
+      aside: [],
+      audio: ['autoplay', 'controls', 'loop', 'preload', 'src', 'class', 'style'],
+      b: ['class', 'style'],
+      bdi: ['dir'],
+      bdo: ['dir'],
+      big: [],
+      blockquote: ['cite', 'class', 'style'],
+      br: [],
+      caption: ['class', 'style'],
+      center: [],
+      cite: [],
+      code: ['class', 'style'],
+      col: ['align', 'valign', 'span', 'width', 'class', 'style'],
+      colgroup: ['align', 'valign', 'span', 'width', 'class', 'style'],
+      dd: ['class', 'style'],
+      del: ['datetime'],
+      details: ['open'],
+      div: ['class', 'style'],
+      dl: ['class', 'style'],
+      dt: ['class', 'style'],
+      em: ['class', 'style'],
+      font: ['color', 'size', 'face'],
+      footer: [],
+      h1: ['class', 'style'],
+      h2: ['class', 'style'],
+      h3: ['class', 'style'],
+      h4: ['class', 'style'],
+      h5: ['class', 'style'],
+      h6: ['class', 'style'],
+      header: [],
+      hr: [],
+      i: ['class', 'style'],
+      img: ['src', 'alt', 'title', 'width', 'height', 'id', '_src', '_url', 'loadingclass', 'class', 'data-latex'],
+      ins: ['datetime'],
+      li: ['class', 'style'],
+      mark: [],
+      nav: [],
+      ol: ['class', 'style'],
+      p: ['class', 'style'],
+      pre: ['class', 'style'],
+      s: [],
+      section: [],
+      small: [],
+      span: ['class', 'style'],
+      sub: ['class', 'style'],
+      sup: ['class', 'style'],
+      strong: ['class', 'style'],
+      table: ['width', 'border', 'align', 'valign', 'class', 'style'],
+      tbody: ['align', 'valign', 'class', 'style'],
+      td: ['width', 'rowspan', 'colspan', 'align', 'valign', 'class', 'style'],
+      tfoot: ['align', 'valign', 'class', 'style'],
+      th: ['width', 'rowspan', 'colspan', 'align', 'valign', 'class', 'style'],
+      thead: ['align', 'valign', 'class', 'style'],
+      tr: ['rowspan', 'align', 'valign', 'class', 'style'],
+      tt: [],
+      u: [],
+      ul: ['class', 'style'],
+      video: ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width', 'class', 'style']
+    }
   };
 
   function getUEBasePath(docUrl, confUrl) {

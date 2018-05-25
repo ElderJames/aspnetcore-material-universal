@@ -15,3 +15,4 @@ export * from './github-button';
 export * from './speed-dial';
 export * from './chat-widget';
 export * from './material-table';
+export * from './ueditor';

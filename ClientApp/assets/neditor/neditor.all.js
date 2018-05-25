@@ -6,6 +6,9 @@
 
 (function(){
 
+if (typeof window === 'undefined')
+  return;
+  
 // editor.js
 UEDITOR_CONFIG = window.UEDITOR_CONFIG || {};
 

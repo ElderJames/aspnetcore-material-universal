@@ -20,7 +20,7 @@ const routes: Routes = [
     component: ValidationComponent
   },
   {
-    path: 'editor',
+    path: 'ueditor',
     component: UeditorComponent
   }
 ];

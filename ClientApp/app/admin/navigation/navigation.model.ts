@@ -147,10 +147,10 @@ export class NavigationModel {
             'type': 'item',
             'url': '/forms/validation'
           }, {
-            'id': 'editor',
+            'id': 'ueditor',
             'title': '编辑器',
             'type': 'item',
-            'url': '/forms/editor'
+            'url': '/forms/ueditor'
           }
         ]
       },
@@ -177,12 +177,12 @@ export class NavigationModel {
           //   'type': 'item',
           //   'url': '/tables/dynamic'
           // }
-          {
-            'id': 'material-table',
-            'table': 'Material表格',
-            'type': 'item',
-            'url': '/tables/material-table'
-          }
+          // {
+          //   'id': 'material-table',
+          //   'table': 'Material表格',
+          //   'type': 'item',
+          //   'url': '/tables/material-table'
+          // }
         ]
       }, {
         'id': 'pages',
