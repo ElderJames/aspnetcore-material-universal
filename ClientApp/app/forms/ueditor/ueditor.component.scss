@@ -1,8 +1,5 @@
-.example-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .example-container > * {
-    width: 100%;
-  }
+:host {
+  display: block;
+  margin: 36px;
+  position: relative;
+}

@@ -1,7 +1,7 @@
 <div class="example-container">
     <h1>UEditor Component for Angular</h1>
     <div class="editor">
-        <form role="form" #form="ngForm">
+        <form role="form" #form="ngForm" class="mat-elevation-z8">
             <shriek-ueditor name="model_text" [(ngModel)]="model_text" #editor="ngModel" (contentChange)="contentChange($event)" (ready)="editorReady($event)"
                 [option]="option" required>
             </shriek-ueditor>

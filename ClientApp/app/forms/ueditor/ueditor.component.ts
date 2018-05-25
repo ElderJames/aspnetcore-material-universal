@@ -14,7 +14,7 @@ export class UeditorComponent {
     model_text: string = '<span style="color: red;">测试文本！</span>';
 
     option = {
-        initialFrameHeight: '500'
+        initialFrameHeight: '400'
     };
 
     constructor() {
