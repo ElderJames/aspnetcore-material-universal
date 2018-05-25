@@ -4,6 +4,10 @@ import * as _ from 'lodash';
 
 declare let UE: any;
 
+import '../../../assets/neditor/neditor.config.js';
+import '../../../assets/neditor/neditor.all.js';
+import '../../../assets/neditor/i18n/zh-cn/zh-cn.js';
+
 export const EDITOR_VALUE_ACCESSOR: any = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => UeditorComponent),
@@ -17,6 +21,46 @@ export const EDITOR_VALUE_ACCESSOR: any = {
 })
 export class UeditorComponent implements ControlValueAccessor, AfterViewInit, OnInit, OnDestroy {
 
+    constructor(elementRef: ElementRef, render: Renderer2) {
+        this.isBowser = typeof window !== 'undefined';
+        if (!this.isBowser)
+            return;
+
+        this.elementRef = elementRef;
+        render.listen(this.elementRef.nativeElement, 'click', () => { }); // 当数据变化时通过调用click事件触发数据检测，保证视图已更新
+    }
+
+    ngAfterViewInit(): void {
+        if (!this.isBowser)
+            return;
+
+    }
+
+    ngOnDestroy() {
+        this.ue && this.ue.destroy();
+        this.ue = null;
+    }
+
+    ngOnInit() {
+        if (!this.isBowser)
+            return;
+
+        let con: any = _.merge({}, this.defaultConfig, this.config);
+        this.ue = UE.getEditor(this.elementRef.nativeElement, con);
+
+        this.Editor = UE.Editor;
+        this.EventBase = UE.EventBase;
+        this.uNode = UE.uNode;
+        this.domRange = UE.dom.Range;
+        this.domSelection = UE.dom.Selection;
+        this.domUtils = UE.dom.domUtils;
+        this.ajax = UE.ajax;
+        this.browser = UE.browser;
+        this.utils = UE.utils;
+
+        this.registerEvents();
+
+    }
 
     isBowser: boolean;
     editor_text: string;
@@ -25,7 +69,8 @@ export class UeditorComponent implements ControlValueAccessor, AfterViewInit, On
     isReady: boolean = false;
     editorChange: any = (_: any) => { };
     defaultConfig: any = {
-        autoHeightEnabled: false
+        autoHeightEnabled: false,
+        UEDITOR_HOME_URL: '/assets/neditor/'
     };
     ue: any = null;
     Editor: any;
@@ -127,26 +172,7 @@ export class UeditorComponent implements ControlValueAccessor, AfterViewInit, On
     @Output()
     contentChange: EventEmitter<any> = new EventEmitter<any>(false);
 
-    constructor(elementRef: ElementRef, render: Renderer2) {
-        this.isBowser = typeof window !== 'undefined';
-        if (!this.isBowser)
-            return;
 
-        this.elementRef = elementRef;
-        render.listen(this.elementRef.nativeElement, 'click', () => { }); // 当数据变化时通过调用click事件触发数据检测，保证视图已更新
-    }
-    ngAfterViewInit(): void {
-        if (!this.isBowser)
-            return;
-
-
-
-    }
-
-    ngOnDestroy() {
-        this.ue && this.ue.destroy();
-        this.ue = null;
-    }
 
 	/**
 	 * 更新视图和模型及有关值
@@ -156,39 +182,9 @@ export class UeditorComponent implements ControlValueAccessor, AfterViewInit, On
         this.editorChange(this.editor_text); // 更新ngModel
         this.elementRef.nativeElement.click(); // 触发数据检测，保证视图已更新
     }
-    ngOnInit() {
-        if (!this.isBowser)
-            return;
-
-        // this.elementRef.nativeElement.innerHTML = '';
-        // var ele = window.document.createElement('h1');
-        // ele.innerHTML = "hello world";
-        // document.getElementsByTagName('body')[0].appendChild(ele);
-        // var script = document.createElement('script');
-        // var script2 = document.createElement('script');
-        // var script3 = document.createElement('script');
-        // script.src = './assets/neditor/neditor.config.js';
-        // document.getElementsByTagName('body')[0].appendChild(script);
-        // script2.src = './assets/neditor/neditor.all.min.js';
-        // document.getElementsByTagName('body')[0].appendChild(script2);
-        // script3.src = './assets/neditor/i18n/zh-cn/zh-cn.js';
-        // document.getElementsByTagName('body')[0].appendChild(script3);
-        let con: any = _.merge({}, this.defaultConfig, this.config);
-        this.ue = UE.getEditor(this.elementRef.nativeElement, con);
-
-        this.Editor = UE.Editor;
-        this.EventBase = UE.EventBase;
-        this.uNode = UE.uNode;
-        this.domRange = UE.dom.Range;
-        this.domSelection = UE.dom.Selection;
-        this.domUtils = UE.dom.domUtils;
-        this.ajax = UE.ajax;
-        this.browser = UE.browser;
-        this.utils = UE.utils;
 
 
-
-
+    registerEvents() {
         // 注册事件
         this.ue.addListener('ready', (editor: any) => {
             this.isReady = true;
@@ -279,7 +275,7 @@ export class UeditorComponent implements ControlValueAccessor, AfterViewInit, On
 	 * @param html 要插入的html内容
 	 * @param isAppendTo 若传入true，不清空原来的内容，在最后插入内容，否则，清空内容再插入
 	 */
-    setContent(html: string, isAppendTo: boolean = false): void {
+    setContent(html: string = '', isAppendTo: boolean = false): void {
         this.ue && this.ue.setContent(html, isAppendTo);
     }
 
