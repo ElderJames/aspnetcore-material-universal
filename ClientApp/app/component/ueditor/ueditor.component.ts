@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, ElementRef, Input, Output, EventEmitter, forwardRef, Renderer2, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { isPlatformBrowser } from '@angular/common';
 import * as _ from 'lodash';
 
 declare let UE: any;
@@ -24,7 +25,8 @@ export const EDITOR_VALUE_ACCESSOR: any = {
 export class UEditorComponent implements ControlValueAccessor, OnInit, OnDestroy {
 
     constructor(elementRef: ElementRef, render: Renderer2) {
-        this.isBowser = typeof window !== 'undefined';
+
+        this.isBowser = isPlatformBrowser ? true : false;
 
         if (!this.isBowser)
             return;
@@ -48,8 +50,6 @@ export class UEditorComponent implements ControlValueAccessor, OnInit, OnDestroy
         if (!this.isBowser)
             return;
 
-        console.log('destroy。。。');
-
         this.ue && this.ue.destroy();
         this.ue = null;
 
@@ -60,7 +60,7 @@ export class UEditorComponent implements ControlValueAccessor, OnInit, OnDestroy
         if (!this.isBowser)
             return;
 
-        var id = new Date().getUTCMilliseconds() + '';
+        var id = 'ueditor-' + new Date().getUTCMilliseconds();
         this.elementRef.nativeElement.id = id;
 
         let con: any = _.merge({}, this.defaultConfig, this.config);
