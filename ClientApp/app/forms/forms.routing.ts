@@ -5,6 +5,7 @@ import { FormsComponent } from './forms.component';
 import { ElementsComponent } from './elements/elements.component';
 import { ValidationComponent } from './validation/validation.component';
 import { UeditorComponent } from './ueditor/ueditor.component';
+import { EditorMdComponent } from './editor-md/editor-md.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,12 @@ const routes: Routes = [
   {
     path: 'ueditor',
     component: UeditorComponent
-  }
+  },
+  {
+    path: 'editor-md',
+    component: EditorMdComponent
+  },
+
 ];
 
 @NgModule({

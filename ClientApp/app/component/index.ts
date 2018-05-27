@@ -15,4 +15,5 @@ export * from './github-button';
 export * from './speed-dial';
 export * from './chat-widget';
 export * from './material-table';
-export * from './ueditor';
+export { UEditorComponent, UEditorModule } from './ueditor';
+export { EditorMdComponent, EditorMdModule } from './editor-md';

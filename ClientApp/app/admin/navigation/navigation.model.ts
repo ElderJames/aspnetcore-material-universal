@@ -151,6 +151,12 @@ export class NavigationModel {
             'title': '编辑器',
             'type': 'item',
             'url': '/forms/ueditor'
+          },
+          {
+            'id': 'editor-md',
+            'title': 'Markdown编辑器',
+            'type': 'item',
+            'url': '/forms/editor-md'
           }
         ]
       },

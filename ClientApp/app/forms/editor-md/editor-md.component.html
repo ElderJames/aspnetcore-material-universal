@@ -1,0 +1,18 @@
+<div class="example-container">
+    <h1>Editor-md Component for Angular</h1>
+    <div class="editor">
+        <form role="form" #form="ngForm" class="mat-elevation-z8">
+            <editor-md name="model_text" [(ngModel)]="model_text" #editor="ngModel" (contentChange)="contentChange($event)" (ready)="editorReady($event)"
+                [option]="option" required>
+            </editor-md>
+        </form>
+        <p>
+            model_text:{{model_text}}
+        </p>
+    </div>
+    <h2>常用API</h2>
+    <div>
+        <button (click)="setContent()">修改内容</button>
+        <button (click)="setHeight(200)">设置编辑器的高度</button>
+    </div>
+</div>
