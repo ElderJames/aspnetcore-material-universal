@@ -26,8 +26,7 @@
               "ClientApp/assets/favicon.ico",
               "ClientApp/assets"
             ],
-            "styles": [
-              {
+            "styles": [{
                 "input": "node_modules/normalize.css/normalize.css",
                 "bundleName": "lib"
               },
@@ -51,12 +50,10 @@
               "extractCss": true
             },
             "github": {
-              "fileReplacements": [
-                {
-                  "replace": "ClientApp/environments/environment.ts",
-                  "with": "ClientApp/environments/environment.github.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "ClientApp/environments/environment.ts",
+                "with": "ClientApp/environments/environment.github.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -68,12 +65,10 @@
               "buildOptimizer": true
             },
             "ngsw": {
-              "fileReplacements": [
-                {
-                  "replace": "ClientApp/environments/environment.ts",
-                  "with": "ClientApp/environments/environment.ngsw.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "ClientApp/environments/environment.ts",
+                "with": "ClientApp/environments/environment.ngsw.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -85,12 +80,10 @@
               "buildOptimizer": true
             },
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "ClientApp/environments/environment.ts",
-                  "with": "ClientApp/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "ClientApp/environments/environment.ts",
+                "with": "ClientApp/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,

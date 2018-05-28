@@ -3,7 +3,7 @@
     <div class="editor">
         <form role="form" #form="ngForm" class="mat-elevation-z8">
             <editor-md name="model_text" [(ngModel)]="model_text" #editor="ngModel" (contentChange)="contentChange($event)" (ready)="editorReady($event)"
-                [option]="option" required>
+                style="display: block;" [option]="option" required>
             </editor-md>
         </form>
         <p>

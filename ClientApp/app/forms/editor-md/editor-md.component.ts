@@ -11,10 +11,10 @@ export class EditorMdComponent implements OnInit {
 
     @ViewChild(md) editor: md;
 
-    model_text: string = '<span style="color: red;">测试文本！</span>';
+    model_text: string = '## Hello World!';
 
     constructor() {
-       
+
     }
 
     ngOnInit() {
@@ -34,6 +34,6 @@ export class EditorMdComponent implements OnInit {
     }
 
     setContent(): void {
-        this.model_text = '<p style="font-weight: bold;"><a href="http://ueditor.baidu.com/website/index.html" target="_blank" title="去UEditor官网">UEditor Component for Angular2 (已修改)</a></p>';
+        this.model_text = '# Bigger than bigger';
     }
 }
