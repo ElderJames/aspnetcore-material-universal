@@ -1,10 +1,8 @@
-import { Component, Attribute, OnInit, OnDestroy, AfterViewInit, ElementRef, Input, Output, ViewEncapsulation, EventEmitter, forwardRef, Renderer2, ChangeDetectionStrategy, OnChanges } from '@angular/core';
+import { Component, Attribute, OnInit, OnDestroy, AfterContentInit, ElementRef, Input, Output, ViewEncapsulation, EventEmitter, forwardRef, Renderer2, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
 import { EditorConfig } from './editor-md.config';
 import * as _ from 'lodash';
-
-declare var editormd: any;
 
 import * as $ from 'jquery'
 import * as factory from '../../../assets/editor.md/editormd.js';
@@ -25,13 +23,19 @@ export const EDITOR_VALUE_ACCESSOR: any = {
 })
 export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestroy {
 
-    @Input() option: EditorConfig; // 配置选项
-    @Output() onEditorChange: EventEmitter<string> = new EventEmitter<string>();
+    @Input() config: EditorConfig; // 配置选项
+
     editor: any; // editormd编辑器
     isBowser: boolean;
     elementRef: ElementRef;
-    text: string;
+    defaultConfig = {
+        // onload: this.onload
+    }
+
     id: string;
+    editor_text: string;
+    isReady: boolean;
+    editorChange: any = (_: any) => { };
 
     constructor(elementRef: ElementRef, render: Renderer2) {
 
@@ -42,6 +46,7 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
 
         window['jQuery'] = $;
         window['$'] = $;
+        window['textarea'] = { value: '' }
 
         this.elementRef = elementRef;
         render.listen(this.elementRef.nativeElement, 'click', () => { }); // 当数据变化时通过调用click事件触发数据检测，保证视图已更新
@@ -56,27 +61,85 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
         if (!this.isBowser)
             return;
 
-        var editormd = factory();
+        $(document).ready(() => {
 
-        if (!this.option)
-            this.option = new EditorConfig();
+            var editormd = factory();
 
-        this.editor = editormd(this.id, this.option); // 创建编辑器
+            if (!this.config)
+                this.config = new EditorConfig();
 
-        const out = this.onEditorChange;
-        const textarea = $('#' + this.id + ' :first'); // 获取textarea元素
+            let con: any = _.merge({}, this.defaultConfig, this.config);
+            this.editor = editormd(this.id, con); // 创建编辑器
 
-        // 当编辑器内容改变时，触发textarea的change事件
-        this.editor.on('change', function () {
-            out.emit(textarea.val());
+            const textarea = $('#' + this.id + ' :first'); // 获取textarea元素
+
+            // 当编辑器内容改变时，触发textarea的change事件
+            this.editor.on('change', (editor: any) => {
+                this.viewAndModelChange();
+                this.contentChange.emit(this.editor_text);
+            });
+
+            this.editor.on('load', (editor: any) => {
+                this.isReady = true;
+                this.setContent(this.editor_text);
+                this.ready.emit(this);
+            })
         });
     }
 
+    onload() {
+
+    }
+
     ngOnDestroy(): void {
-        if (!this.isBowser)
+        if (!this.isBowser || !this.isReady)
             return;
 
-        // this.editor = null;
+        this.editor && this.editor.editor.remove();
+        this.editor = null;
+        this.destroy.emit(this);
+        this.isReady = false;
+    }
+
+    @Input()
+    set option(config: any) {
+        this.config = config;
+    }
+
+    get option(): any {
+        return this.config;
+    }
+
+    get text() {
+        return this.editor_text;
+    }
+
+    set text(value: string) {
+        this.editor_text = value;
+        if (this.isReady) {
+            this.setContent(value);
+        }
+    }
+
+    setContent(text: string): void {
+        this.editor && this.editor.config('markdown', text);
+    }
+
+    getMarkdown(): any {
+        return this.editor && this.editor.getMarkdown();
+    }
+
+    getHTML(): any {
+        return this.editor && this.editor.getHTML();
+    }
+
+    /**
+     * 更新视图和模型及有关值
+     */
+    viewAndModelChange(): void {
+        this.editor_text = this.getMarkdown();
+        this.editorChange(this.editor_text); // 更新ngModel
+        this.elementRef.nativeElement.click(); // 触发数据检测，保证视图已更新
     }
 
     // 以下实现ControlValueAccessor接口的方法
@@ -87,21 +150,21 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
     }
 
     registerOnChange(fn: any): void {
-        this.onEditorChange = fn;
+        this.editorChange = fn;
     }
 
     registerOnTouched(fn: any): void {
-        this.onEditorChange = fn;
+        this.editorChange = fn;
     }
 
-    title = 'app';
+    // 编辑器准备就绪后会触发该事件
+    @Output()
+    ready: EventEmitter<any> = new EventEmitter<any>(false);
 
-    conf = new EditorConfig();
+    // 执行destroy方法,会触发该事件
+    @Output()
+    destroy: EventEmitter<any> = new EventEmitter<any>(false);
 
-    @Output() markdown: string;
-
-    // 同步属性内容
-    syncModel(str): void {
-        this.markdown = str;
-    }
+    @Output()
+    contentChange: EventEmitter<string> = new EventEmitter<string>();
 }

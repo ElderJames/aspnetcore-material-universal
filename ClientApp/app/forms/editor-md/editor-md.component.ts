@@ -7,12 +7,13 @@ import { EditorMdComponent as md, EditorConfig } from '../../component'
     templateUrl: './editor-md.component.html',
     styleUrls: ['./editor-md.component.scss'],
 })
-export class EditorMdComponent  {
+export class EditorMdComponent {
 
     @ViewChild(md) editor: md;
 
     markdown: string = '## Hello World!';
     option = new EditorConfig();
+    html: string;
 
     constructor() {
 
@@ -21,6 +22,8 @@ export class EditorMdComponent  {
 
     contentChange($event) {
         console.log('contentChange：', $event);
+        this.html = this.editor.getHTML();
+    
     }
 
     editorReady($event) {
