@@ -1,4 +1,4 @@
-import { Component, Attribute, OnInit, OnDestroy, AfterContentInit, ElementRef, Input, Output, ViewEncapsulation, EventEmitter, forwardRef, Renderer2, ChangeDetectionStrategy, OnChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, Input, Output, ViewEncapsulation, EventEmitter, forwardRef, Renderer2, ChangeDetectionStrategy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
 import { EditorConfig } from './editor-md.config';
@@ -29,7 +29,7 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
     isBowser: boolean;
     elementRef: ElementRef;
     defaultConfig = {
-        // onload: this.onload
+
     }
 
     id: string;
@@ -46,7 +46,6 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
 
         window['jQuery'] = $;
         window['$'] = $;
-        window['textarea'] = { value: '' }
 
         this.elementRef = elementRef;
         render.listen(this.elementRef.nativeElement, 'click', () => { }); // 当数据变化时通过调用click事件触发数据检测，保证视图已更新
@@ -85,10 +84,6 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
                 this.ready.emit(this);
             })
         });
-    }
-
-    onload() {
-
     }
 
     ngOnDestroy(): void {
