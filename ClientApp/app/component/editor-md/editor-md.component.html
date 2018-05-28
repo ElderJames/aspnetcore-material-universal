@@ -1,6 +1,3 @@
 <div id="md" appEditorMd [editormdConfig]="conf" (onEditorChange)="syncModel($event)">
     <textarea style="display: block;" [(ngModel)]="markdown"></textarea>
 </div>
-<hr>
-<h2>Markdown内容:</h2>
-<span>{{markdown}}</span>

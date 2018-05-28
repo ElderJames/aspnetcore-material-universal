@@ -3,7 +3,7 @@ import { EditorConfig } from './editor-md.config';
 
 declare var editormd: any;
 
-import * as $ from 'node_modules/jquery/dist/jquery.js'
+import * as $ from 'jquery'
 
 import * as factory from '../../../assets/editor.md/editormd.js';
 
