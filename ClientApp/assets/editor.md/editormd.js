@@ -465,23 +465,23 @@
                 }
             }
             
-            if ((typeof define === "function" && define.amd) || !settings.autoLoadModules)
-            {
-                if (typeof CodeMirror !== "undefined") {
-                    editormd.$CodeMirror = CodeMirror;
-                }
+            // if ((typeof define === "function" && define.amd) || !settings.autoLoadModules)
+            // {
+            //     if (typeof CodeMirror !== "undefined") {
+            //         editormd.$CodeMirror = CodeMirror;
+            //     }
                 
-                if (typeof marked     !== "undefined") {
-                    editormd.$marked     = marked;
-                }
+            //     if (typeof marked     !== "undefined") {
+            //         editormd.$marked     = marked;
+            //     }
                 
-                this.setCodeMirror().setToolbar().loadedDisplay();
-            } 
-            else 
-            {
-                this.loadQueues();
-            }
-
+            //     this.setCodeMirror().setToolbar().loadedDisplay();
+            // } 
+            // else 
+            // {
+            //     this.loadQueues();
+            // }
+            this.loadQueues();
             return this;
         },
         

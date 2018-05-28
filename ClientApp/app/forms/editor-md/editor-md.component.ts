@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { EditorMdComponent as md } from '../../component'
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { EditorMdComponent as md, EditorConfig } from '../../component'
 
 
 @Component({
@@ -7,13 +7,18 @@ import { EditorMdComponent as md } from '../../component'
     templateUrl: './editor-md.component.html',
     styleUrls: ['./editor-md.component.scss'],
 })
-export class EditorMdComponent {
+export class EditorMdComponent implements OnInit {
 
     @ViewChild(md) editor: md;
 
     model_text: string = '<span style="color: red;">测试文本！</span>';
 
     constructor() {
+       
+    }
+
+    ngOnInit() {
+
     }
 
     contentChange($event) {
@@ -25,7 +30,7 @@ export class EditorMdComponent {
     }
 
     setHeight(height: number): void {
-      
+
     }
 
     setContent(): void {

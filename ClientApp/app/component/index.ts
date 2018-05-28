@@ -16,4 +16,4 @@ export * from './speed-dial';
 export * from './chat-widget';
 export * from './material-table';
 export { UEditorComponent, UEditorModule } from './ueditor';
-export { EditorMdComponent, EditorMdModule } from './editor-md';
+export { EditorMdComponent, EditorMdModule, EditorConfig } from './editor-md';

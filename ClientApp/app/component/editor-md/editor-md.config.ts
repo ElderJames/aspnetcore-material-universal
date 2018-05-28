@@ -1,7 +1,7 @@
 export class EditorConfig {
     public width = '100%';
     public height = '400';
-    public path = 'assets/editor.md/lib/';
+    public path = '/assets/editor.md/lib/';
     public codeFold: true;
     public searchReplace = true;
     public toolbar = true;
@@ -20,7 +20,7 @@ export class EditorConfig {
     public imageUpload = true;
     public imageFormats = ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'];
     public imageUploadURL = '';
-
+    public autoLoadModules = true;
     constructor() {
     }
 }
