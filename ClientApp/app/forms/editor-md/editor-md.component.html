@@ -2,7 +2,8 @@
     <h1>Editor.MD Component for Angular</h1>
     <div class="editor">
         <form role="form" #form="ngForm" class="mat-elevation-z8">
-            <editor-md></editor-md>
+            <editor-md name="markdown" [(ngModel)]="markdown" #editor="ngModel" [option]="option" required>
+            </editor-md>
         </form>
     </div>
 </div>

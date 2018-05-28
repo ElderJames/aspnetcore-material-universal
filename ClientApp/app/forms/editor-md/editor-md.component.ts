@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { EditorMdComponent as md, EditorConfig } from '../../component'
 
 
@@ -7,19 +7,17 @@ import { EditorMdComponent as md, EditorConfig } from '../../component'
     templateUrl: './editor-md.component.html',
     styleUrls: ['./editor-md.component.scss'],
 })
-export class EditorMdComponent implements OnInit {
+export class EditorMdComponent  {
 
     @ViewChild(md) editor: md;
 
-    model_text: string = '## Hello World!';
+    markdown: string = '## Hello World!';
+    option = new EditorConfig();
 
     constructor() {
 
     }
 
-    ngOnInit() {
-
-    }
 
     contentChange($event) {
         console.log('contentChange：', $event);
@@ -34,6 +32,6 @@ export class EditorMdComponent implements OnInit {
     }
 
     setContent(): void {
-        this.model_text = '# Bigger than bigger';
+        this.markdown = '# Bigger than bigger';
     }
 }

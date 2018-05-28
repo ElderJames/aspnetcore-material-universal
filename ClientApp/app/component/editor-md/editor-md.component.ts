@@ -31,8 +31,9 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
     isBowser: boolean;
     elementRef: ElementRef;
     text: string;
+    id: string;
 
-    constructor(elementRef: ElementRef, render: Renderer2, @Attribute('id') private id: string) {
+    constructor(elementRef: ElementRef, render: Renderer2) {
 
         this.isBowser = isPlatformBrowser ? true : false;
 
@@ -45,16 +46,15 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
         this.elementRef = elementRef;
         render.listen(this.elementRef.nativeElement, 'click', () => { }); // 当数据变化时通过调用click事件触发数据检测，保证视图已更新
 
-        // this.id = 'editor-md-' + new Date().getUTCMilliseconds();
-        // this.elementRef.nativeElement.id = this.id;
-
+        this.id = 'editor-md-' + new Date().getUTCMilliseconds();
+        this.elementRef.nativeElement.id = this.id;
+        this.elementRef.nativeElement.style = "display: block;";
     }
 
     ngOnInit() {
 
         if (!this.isBowser)
             return;
-
 
         var editormd = factory();
 
@@ -105,26 +105,3 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
         this.markdown = str;
     }
 }
-// import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-// import { EditorConfig } from './editor-md.config';
-
-
-// @Component({
-//     selector: 'editor-md',
-//     templateUrl: './editor-md.component.html',
-//     styleUrls: ['./editor-md.component.scss'],
-//     encapsulation: ViewEncapsulation.None,
-// })
-// export class EditorMdComponent {
-//     title = 'app';
-
-//     @Input() option: EditorConfig; // 配置选项
-//     @Output() onEditorChange: EventEmitter<string> = new EventEmitter<string>();
-//     @Output() markdown: string;
-
-
-//     // 同步属性内容
-//     syncModel(str): void {
-//         this.markdown = str;
-//     }
-// }
