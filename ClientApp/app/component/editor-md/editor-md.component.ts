@@ -63,15 +63,14 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
         $(document).ready(() => {
 
             var editormd = factory();
+            window['editormd'] = editormd;
 
             if (!this.config)
                 this.config = new EditorConfig();
 
             let con: any = _.merge({}, this.defaultConfig, this.config);
             this.editor = editormd(this.id, con); // 创建编辑器
-
-            const textarea = $('#' + this.id + ' :first'); // 获取textarea元素
-
+           
             // 当编辑器内容改变时，触发textarea的change事件
             this.editor.on('change', (editor: any) => {
                 this.viewAndModelChange();
