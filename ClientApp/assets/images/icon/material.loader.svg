@@ -1,0 +1,25 @@
+<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+ <style>@keyframes circleAnimation{0%{transform:rotate(0deg);stroke-dasharray:1600,0}16%{stroke-dasharray:1600,1100}90%,to{transform:rotate(630deg);stroke-dasharray:1600,0}}@keyframes rotateAnimation{0%,24.9%{transform:rotate(0deg)}25%,49.9%{transform:rotate(90deg)}50%,74.9%{transform:rotate(180deg)}75%,99.9%{transform:rotate(270deg)}}@keyframes squareAnimation{0%{transform:rotate(0deg)}36%,50%{transform:rotate(180deg)}86%,to{transform:rotate(360deg)}}#metaCircle{animation:6s infinite rotateAnimation}#circle{transform-origin:0 0!important;animation:1.5s cubic-bezier(.4,0,.2,1) infinite circleAnimation}#square{transform-origin:-200.3125px 1.59375px!important;animation:3s cubic-bezier(.72,.03,.33,1) infinite squareAnimation}</style>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g transform="translate(402 402) scale(.9932)" id="OUTER">
+   <g id="metaCircle">
+    <path d="m0,-358.45c197.97,0 358.45,160.48 358.45,358.45s-160.48,358.45 -358.45,358.45s-358.45,-160.48 -358.45,-358.45s160.48,-358.45 358.45,-358.45z" stroke-width="36" stroke-dashoffset="760" stroke-dasharray="1600 0" stroke="#525252" fill="none" id="circle"/>
+   </g>
+  </g>
+  <g transform="matrix(-3.12 0 0 -3.12 -223.54 406.55)" id="INNER">
+   <g id="square">
+    <path id="svg_1" d="m-120.63,-76.94l-159.37,0.06l0,157l159.38,-0.06l0,-157l-0.01,0z" stroke-width="12" stroke-linejoin="round" stroke="#525252" fill="none"/>
+    <g id="svg_2" stroke-width="12" stroke-linecap="round" stroke="#525252">
+     <path id="svg_3" d="m-272.5,76.3l71.2,-151.2"/>
+     <path id="svg_4" d="m-130,76.3l-71.3,-151.2"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

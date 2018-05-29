@@ -15,7 +15,7 @@ $theme: mat-light-theme($primary, $accent, $warn);
 @import "scss/index";
 @import "scss/app-theme";
 @include angular-material-theme($theme);
-@include shriek-app-theme($theme)
+@include shriek-app-theme($theme);
 @include shriek-theme-color();
 
 

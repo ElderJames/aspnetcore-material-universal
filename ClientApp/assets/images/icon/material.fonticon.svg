@@ -1,0 +1,29 @@
+<svg width="192" height="192" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient y2="0.80618" y1="0.057323" x2="0.79299" x1="-0.056433" id="a">
+   <stop stop-opacity="0.2" stop-color="#3E2723" offset="0.006"/>
+   <stop stop-opacity="0" stop-color="#3E2723" offset="0.996"/>
+  </linearGradient>
+  <radialGradient gradientUnits="userSpaceOnUse" r="176.835" cy="34.326" cx="33.535" id="b">
+   <stop stop-color="#FFF" offset="0"/>
+   <stop stop-opacity="0.99" stop-color="#FFF" offset="0.01"/>
+   <stop stop-opacity="0" stop-color="#FFF" offset="1"/>
+  </radialGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" d="m184,96c0,3.5 -0.2,6.96 -0.61,10.36c-4.67,39.85 -35.97,71.56 -75.62,76.85c-3.85,0.52 -7.78,0.79 -11.77,0.79c-48.6,0 -88,-39.4 -88,-88s39.4,-88 88,-88s88,39.4 88,88z" fill="#FF5252"/>
+  <path id="svg_2" d="m183.27,107.27c-4.9,38.42 -34.58,69.09 -72.51,75.48l-42.76,-42.75l18,0l0,-36l34,0l0,-16l-34,0l0,-20l42,0l0,-16l55.27,55.27z" fill="url(#a)"/>
+  <path id="svg_3" opacity="0.2" d="m96,183c-48.43,0 -87.72,-39.13 -87.99,-87.5c0,0.17 -0.01,0.33 -0.01,0.5c0,48.6 39.4,88 88,88s88,-39.4 88,-88c0,-0.17 -0.01,-0.33 -0.01,-0.5c-0.27,48.37 -39.56,87.5 -87.99,87.5z" fill="#3E2723"/>
+  <path id="svg_4" opacity="0.2" d="m96,9c48.43,0 87.72,39.13 87.99,87.5c0,-0.17 0.01,-0.33 0.01,-0.5c0,-48.6 -39.4,-88 -88,-88s-88,39.4 -88,88c0,0.17 0.01,0.33 0.01,0.5c0.27,-48.37 39.56,-87.5 87.99,-87.5z" fill="#FFF"/>
+  <path id="svg_5" d="m128,68l0,-16l-60,0l0,88l18,0l0,-36l34,0l0,-16l-34,0l0,-20" fill="#F5F5F5"/>
+  <path id="svg_6" opacity="0.4" d="m68,52l60,0l0,1l-60,0l0,-1zm18,37l34,0l0,1l-34,0l0,-1z" fill="#FFF"/>
+  <path id="svg_7" opacity="0.2" d="m68,140l18,0l0,1l-17,0m17,-37l34,0l0,1l-34,0l0,-1zm0,-36l42,0l0,1l-42,0l0,-1z" fill="#3E2723"/>
+  <circle id="svg_8" fill-opacity="0.1" fill="url(#b)" r="88" cy="96" cx="96"/>
+  <path id="svg_9" d="m0,0l192,0l0,192l-192,0l0,-192z" fill="none"/>
+ </g>
+</svg>
