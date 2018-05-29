@@ -518,20 +518,18 @@
                 }
             }
 
-            if ((typeof define === "function" && define.amd) || !settings.autoLoadModules) {
-                if (typeof CodeMirror !== "undefined") {
-                    editormd.$CodeMirror = CodeMirror
-                }
+            // if ((typeof define === "function" && define.amd) || !settings.autoLoadModules) {
+            //     if (typeof CodeMirror !== "undefined") {
+            //         editormd.$CodeMirror = CodeMirror
+            //     }
 
-                if (typeof marked !== "undefined") {
-                    editormd.$marked = marked
-                }
+            //     if (typeof marked !== "undefined") {
+            //         editormd.$marked = marked
+            //     }
 
-                if (editormd.$CodeMirror && editormd.$marked) {
-                    this.setCodeMirror().setToolbar().loadedDisplay()
-                    return this
-                }
-            }
+            //     this.setCodeMirror().setToolbar().loadedDisplay()
+            //     return this
+            // }
 
             this.loadQueues()
 

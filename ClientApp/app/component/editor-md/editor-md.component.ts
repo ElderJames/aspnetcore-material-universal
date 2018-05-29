@@ -50,6 +50,9 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
         this.elementRef = elementRef;
         render.listen(this.elementRef.nativeElement, 'click', () => { }); // 当数据变化时通过调用click事件触发数据检测，保证视图已更新
 
+
+
+
         this.id = 'editor-md-' + new Date().getUTCMilliseconds();
         this.elementRef.nativeElement.id = this.id;
         this.elementRef.nativeElement.style = "display: block;";
@@ -60,17 +63,14 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
         if (!this.isBowser)
             return;
 
+        var editormd = factory();
+        window['editormd'] = editormd;
+
         $(document).ready(() => {
-
-            var editormd = factory();
-            window['editormd'] = editormd;
-
-            if (!this.config)
-                this.config = new EditorConfig();
 
             let con: any = _.merge({}, this.defaultConfig, this.config);
             this.editor = editormd(this.id, con); // 创建编辑器
-           
+
             // 当编辑器内容改变时，触发textarea的change事件
             this.editor.on('change', (editor: any) => {
                 this.viewAndModelChange();

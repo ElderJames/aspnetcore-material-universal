@@ -1,6 +1,6 @@
 export class EditorConfig {
-    public width = "100%";
-    public height = 740;
+    public width: any = "100%";
+    public height: any = 400;
     public path = '/assets/editor.md/lib/';
     public theme = "light";
     public previewTheme = "light";

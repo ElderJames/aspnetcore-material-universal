@@ -16,9 +16,8 @@ export class EditorMdComponent {
     html: string;
 
     constructor() {
-
+        this.option.height = 528;
     }
-
 
     contentChange($event) {
         console.log('contentChange：', $event);
