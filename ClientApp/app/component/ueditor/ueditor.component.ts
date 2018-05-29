@@ -78,7 +78,8 @@ export class UEditorComponent implements ControlValueAccessor, OnInit, OnDestroy
     editorChange: any = (_: any) => { };
     defaultConfig: any = {
         autoHeightEnabled: false,
-        UEDITOR_HOME_URL: '/assets/neditor/'
+        UEDITOR_HOME_URL: '/assets/neditor/',
+        initialFrameWidth: '100%'
     };
     ue: any = null;
     Editor: any;
