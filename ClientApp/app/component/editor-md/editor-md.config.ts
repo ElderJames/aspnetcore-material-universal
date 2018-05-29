@@ -4,7 +4,7 @@ export class EditorConfig {
     public path = '/assets/editor.md/lib/';
     public theme = "light";
     public previewTheme = "light";
-    public editorTheme = "pastel-on-light";
+    public editorTheme: string;
     public markdown: string;
     public codeFold = true;
     //public syncScrolling = false,

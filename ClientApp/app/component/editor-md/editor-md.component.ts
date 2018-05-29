@@ -117,7 +117,7 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
     }
 
     setContent(text: string): void {
-        this.editor && this.editor.config('markdown', text);
+        this.editor && this.editor.config('value', text);
     }
 
     getMarkdown(): any {
@@ -149,7 +149,7 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
     }
 
     registerOnTouched(fn: any): void {
-        this.editorChange = fn;
+
     }
 
     // 编辑器准备就绪后会触发该事件

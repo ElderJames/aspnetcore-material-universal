@@ -23,15 +23,11 @@ export class EditorMdComponent {
     contentChange($event) {
         console.log('contentChange：', $event);
         this.html = this.editor.getHTML();
-    
     }
 
     editorReady($event) {
         console.log('ready：', $event);
-    }
-
-    setHeight(height: number): void {
-
+        this.html = this.editor.getHTML();
     }
 
     setContent(): void {
