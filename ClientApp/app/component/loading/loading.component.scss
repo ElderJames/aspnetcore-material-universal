@@ -1,11 +1,11 @@
 :host {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
+  position: fixed; // background: rgba(0, 0, 0, 0.5);
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
 }
+
 .wrapper {
   position: fixed;
   top: 50%;
@@ -14,17 +14,19 @@
 }
 
 .logo {
-  width: 96px;
-  height: 96px;
-  line-height: 96px;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
   margin: 10px auto;
-  background: #3F51B5;
   text-align: center;
   border-radius: 2px;
-  box-shadow: 0 2px 14px 0 rgba(0, 0, 0, .22)
+  background-image: url(../../../assets/images/icon/material.loader.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
 }
 
-.logo > span {
+.logo>span {
   display: inline-block;
   color: #fff;
   font-size: 56px;
