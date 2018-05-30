@@ -181,8 +181,6 @@ export class UEditorComponent implements ControlValueAccessor, OnInit, OnDestroy
     @Output()
     contentChange: EventEmitter<any> = new EventEmitter<any>(false);
 
-
-
     registerEvents() {
 
         // 注册事件

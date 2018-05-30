@@ -50,9 +50,6 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
         this.elementRef = elementRef;
         render.listen(this.elementRef.nativeElement, 'click', () => { }); // 当数据变化时通过调用click事件触发数据检测，保证视图已更新
 
-
-
-
         this.id = 'editor-md-' + new Date().getUTCMilliseconds();
         this.elementRef.nativeElement.id = this.id;
         this.elementRef.nativeElement.style = "display: block;";
