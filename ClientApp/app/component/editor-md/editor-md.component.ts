@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy, ElementRef, Input, Output, ViewEncapsulation, EventEmitter, forwardRef, Renderer2, ChangeDetectionStrategy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
-import { EditorConfig } from './editor-md.config';
-import * as _ from 'lodash';
+import { EditorMdConfig } from './editor-md.config';
 
 import * as $ from 'jquery'
 import * as factory from '../../../assets/editor.md/editormd.js';
@@ -23,19 +22,16 @@ export const EDITOR_VALUE_ACCESSOR: any = {
 })
 export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestroy {
 
-    @Input() config: EditorConfig; // 配置选项
+    @Input() config: EditorMdConfig; // 配置选项
 
     editor: any; // editormd编辑器
     isBowser: boolean;
     elementRef: ElementRef;
-    defaultConfig = {
-
-    }
-
     id: string;
     editor_text: string;
     isReady: boolean;
     editorChange: any = (_: any) => { };
+    editormd: any;
 
     constructor(elementRef: ElementRef, render: Renderer2) {
 
@@ -46,6 +42,8 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
 
         window['jQuery'] = $;
         window['$'] = $;
+        this.editormd = factory();
+        window['editormd'] = this.editormd;
 
         this.elementRef = elementRef;
         render.listen(this.elementRef.nativeElement, 'click', () => { }); // 当数据变化时通过调用click事件触发数据检测，保证视图已更新
@@ -53,6 +51,8 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
         this.id = 'editor-md-' + new Date().getUTCMilliseconds();
         this.elementRef.nativeElement.id = this.id;
         this.elementRef.nativeElement.style = "display: block;";
+        if (!this.config)
+            this.config = new EditorMdConfig();
     }
 
     ngOnInit() {
@@ -60,13 +60,9 @@ export class EditorMdComponent implements ControlValueAccessor, OnInit, OnDestro
         if (!this.isBowser)
             return;
 
-        var editormd = factory();
-        window['editormd'] = editormd;
-
         $(document).ready(() => {
 
-            let con: any = _.merge({}, this.defaultConfig, this.config);
-            this.editor = editormd(this.id, con); // 创建编辑器
+            this.editor = this.editormd(this.id, this.config); // 创建编辑器
 
             // 当编辑器内容改变时，触发textarea的change事件
             this.editor.on('change', (editor: any) => {

@@ -35,10 +35,6 @@
                 "bundleName": "lib"
               },
               {
-                "input": "node_modules/quill/dist/quill.snow.css",
-                "bundleName": "lib"
-              },
-              {
                 "input": "ClientApp/styles.scss",
                 "bundleName": "shriek-ui"
               }

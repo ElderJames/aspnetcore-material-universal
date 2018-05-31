@@ -1,4 +1,4 @@
-export class EditorConfig {
+export class EditorMdConfig {
     public width: any = "100%";
     public height: any = 400;
     public path = '/assets/editor.md/lib/';

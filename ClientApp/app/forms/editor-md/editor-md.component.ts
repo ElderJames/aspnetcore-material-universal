@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { EditorMdComponent as md, EditorConfig } from '../../component'
+import { EditorMdComponent as md, EditorMdConfig } from '../../component'
 
 
 @Component({
@@ -12,7 +12,7 @@ export class EditorMdComponent {
     @ViewChild(md) editor: md;
 
     markdown: string = '## Hello World!';
-    option = new EditorConfig();
+    option = new EditorMdConfig();
     html: string;
 
     constructor() {
