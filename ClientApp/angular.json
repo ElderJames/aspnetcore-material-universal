@@ -4,8 +4,8 @@
   "newProjectRoot": "projects",
   "projects": {
     "angular-material-app": {
-      "root": "",
-      "sourceRoot": "ClientApp",
+      "root": "src",
+      "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
@@ -17,14 +17,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "wwwroot/dist",
-            "index": "ClientApp/index.html",
-            "main": "ClientApp/main.ts",
-            "polyfills": "ClientApp/polyfills.ts",
-            "tsConfig": "ClientApp/tsconfig.app.json",
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "ClientApp/assets/favicon.ico",
-              "ClientApp/assets"
+              "src/assets/favicon.ico",
+              "src/assets"
             ],
             "styles": [{
                 "input": "node_modules/normalize.css/normalize.css",
@@ -35,7 +35,7 @@
                 "bundleName": "lib"
               },
               {
-                "input": "ClientApp/styles.scss",
+                "input": "src/styles.scss",
                 "bundleName": "shriek-ui"
               }
             ],
@@ -47,8 +47,8 @@
             },
             "github": {
               "fileReplacements": [{
-                "replace": "ClientApp/environments/environment.ts",
-                "with": "ClientApp/environments/environment.github.ts"
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.github.ts"
               }],
               "optimization": true,
               "outputHashing": "all",
@@ -62,8 +62,8 @@
             },
             "ngsw": {
               "fileReplacements": [{
-                "replace": "ClientApp/environments/environment.ts",
-                "with": "ClientApp/environments/environment.ngsw.ts"
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.ngsw.ts"
               }],
               "optimization": true,
               "outputHashing": "all",
@@ -77,8 +77,8 @@
             },
             "production": {
               "fileReplacements": [{
-                "replace": "ClientApp/environments/environment.ts",
-                "with": "ClientApp/environments/environment.prod.ts"
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
               }],
               "optimization": true,
               "outputHashing": "all",
@@ -121,17 +121,17 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "ClientApp/test.ts",
-            "polyfills": "ClientApp/polyfills.ts",
-            "tsConfig": "ClientApp/tsconfig.spec.json",
-            "karmaConfig": "ClientApp/karma.conf.js",
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
             "styles": [
               "styles.scss"
             ],
             "scripts": [],
             "assets": [
-              "ClientApp/favicon.ico",
-              "ClientApp/assets"
+              "src/favicon.ico",
+              "src/assets"
             ]
           }
         },
@@ -139,8 +139,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "ClientApp/tsconfig.app.json",
-              "ClientApp/tsconfig.spec.json"
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -150,15 +150,15 @@
       }
     },
     "ssr": {
-      "root": "",
+      "root": "src",
       "projectType": "application",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "ClientApp/dist-server",
-            "main": "ClientApp/main.server.ts",
-            "tsConfig": "ClientApp/tsconfig.server.json",
+            "outputPath": "dist-server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json",
             "progress": true
           },
           "configurations": {

@@ -1,8 +1,7 @@
 {
   "index": "/index.html",
   "appData": {
-    "name": "aspnetcore-material-universal-pwa",
-    "description": "pwa"
+    "name": "aspnetcore-material-universal"
   },
   "assetGroups": [
     {
@@ -11,12 +10,9 @@
       "resources": {
         "files": [
           "/favicon.ico",
-          "/index.html"
-        ],
-        "versionedFiles": [
-          "/*.bundle.css",
-          "/*.bundle.js",
-          "/*.chunk.js"
+          "/index.html",
+          "/*.css",
+          "/*.js"
         ]
       }
     },
@@ -29,19 +25,36 @@
           "/assets/**"
         ]
       }
+    },
+    {
+      "name": "fonts",
+      "resources": {
+        "urls": [
+          "https://fonts.googleapis.com/**",
+          "https://fonts.gstatic.com/**",
+          "/fontawesome-webfont.*"
+        ]
+      }
     }
   ],
   "dataGroups": [
     {
       "name": "api-freshness",
-      "urls": [
-        "/shriek"
-      ],
+      "urls": [],
       "cacheConfig": {
         "strategy": "freshness",
         "maxSize": 100,
         "maxAge": "3d",
         "timeout": "10s"
+      }
+    },
+    {
+      "name": "api-performance",
+      "urls": [],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 100,
+        "maxAge": "3d"
       }
     }
   ]

@@ -47,7 +47,7 @@ namespace AspNetCoreMaterialUniversal
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "wwwroot/dist";
+                configuration.RootPath = "ClientApp/dist";
             });
 
             services.AddSwaggerGen(c =>
@@ -68,9 +68,13 @@ namespace AspNetCoreMaterialUniversal
                 app.UseDatabaseErrorPage();
             }
             else
-            {
+            {  
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
                 app.UseResponseCompression();
             }
+            
+            app.UseHttpsRedirection();
 
             // https://github.com/openiddict/openiddict-core/issues/518
             // And
@@ -83,11 +87,8 @@ namespace AspNetCoreMaterialUniversal
             forwarOptions.KnownProxies.Clear();
 
             app.UseForwardedHeaders(forwarOptions);
-
             app.UseAuthentication();
-
             app.UseStaticFiles();
-
             app.UseSpaStaticFiles();
 
             app.UseMvc(routes =>
@@ -105,35 +106,37 @@ namespace AspNetCoreMaterialUniversal
             });
 
             app.UseSpa(spa =>
-                      {
-                          spa.Options.SourcePath = "ClientApp";
+            {
+                spa.Options.SourcePath = "ClientApp";
 
-                          /*
-                          // If you want to enable server-side rendering (SSR),
-                          // [1] In AspNetCoreSpa.csproj, change the <BuildServerSideRenderer> property
-                          //     value to 'true', so that the SSR bundle is built during publish
-                          // [2] Uncomment this code block
-                          */
+                /*
+                // If you want to enable server-side rendering (SSR),
+                // [1] In AspNetCoreSpa.csproj, change the <BuildServerSideRenderer> property
+                //     value to 'true', so that the SSR bundle is built during publish
+                // [2] Uncomment this code block
+                */
 
-                          spa.UseSpaPrerendering(options =>
-                          {
-                              options.BootModulePath = $"{spa.Options.SourcePath}/dist-server/main.js";
-                              //   options.BootModuleBuilder = env.IsDevelopment() ? new AngularCliBuilder(npmScript: "build:ssr") : null;
-                              options.ExcludeUrls = new[] { "/sockjs-node" };
-                              options.SupplyData = (requestContext, obj) =>
-                                {
-                                    //  var result = appService.GetApplicationData(requestContext).GetAwaiter().GetResult();
-                                    obj.Add("Cookies", requestContext.Request.Cookies);
-                                };
-                          });
+                spa.UseSpaPrerendering(options =>
+                {
+                    options.BootModulePath = $"{spa.Options.SourcePath}/dist-server/main.js";
+                    options.BootModuleBuilder = env.IsDevelopment()
+                        ? new AngularCliBuilder(npmScript: "build:ssr")
+                        : null;
+                    options.ExcludeUrls = new[] { "/sockjs-node" };
+                    options.SupplyData = (context, data) =>
+                    {
+                        //  var result = appService.GetApplicationData(requestContext).GetAwaiter().GetResult();
+                        data.Add("Cookies", context.Request.Cookies);
+                    };
+                });
 
-                          //   if (env.IsDevelopment())
-                          //   {
-                          //       spa.UseAngularCliServer(npmScript: "start");
-                          //       //   OR
-                          //       //spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
-                          //   }
-                      });
+                if (env.IsDevelopment())
+                {
+                    spa.UseAngularCliServer(npmScript: "start");
+                    //   OR
+                    //spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                }
+            });
         }
     }
 }

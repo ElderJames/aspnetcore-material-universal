@@ -9,9 +9,9 @@
   "scripts": {
     "ng": "ng",
     "clean:install": "rimraf node_modules & yarn",
-    "start": "ng serve",
-    "build": "ng build --prod",
-    "build:ssr": "npm run build -- --project=ssr",
+    "start": "ng serve --extract-css",
+    "build": "ng build --extract-css",
+    "build:ssr": "npm run build -- --app=ssr --output-hashing=media",
     "build:all": "npm run build & npm run build:ssr",
     "lint": "ng lint",
     "e2e": "ng e2e",
