@@ -3,17 +3,17 @@ export const environment = {
   ngsw: true,
   firebase: {
     apiKey: 'AIzaSyAGcYsQtc9xqqEKstnoO3WasuZxJmKTwNc',
-    authDomain: 'angular-material-app-shriek.firebaseapp.com',
-    databaseURL: 'https://angular-material-app-shriek.firebaseio.com',
-    projectId: 'angular-material-app-shriek',
-    storageBucket: 'angular-material-app-shriek.appspot.com',
+    authDomain: 'aspnetcore-material-universal-shriek.firebaseapp.com',
+    databaseURL: 'https://aspnetcore-material-universal-shriek.firebaseio.com',
+    projectId: 'aspnetcore-material-universal-shriek',
+    storageBucket: 'aspnetcore-material-universal-shriek.appspot.com',
     messagingSenderId: '974351057659'
   },
-  navigationApi: '/angular-material-app/assets/data/navigation',
-  todoApi: '/angular-material-app/assets/data/todo/list.json',
-  mailApi: '/angular-material-app/assets/data/mail/list.json',
-  chatsApi: '/angular-material-app/assets/data/chats/list.json',
-  analysisApi: '/angular-material-app/assets/data/analysis',
-  crmApi: '/angular-material-app/assets/data/crm',
-  tableApi: '/angular-material-app/assets/data/table'
+  navigationApi: '/aspnetcore-material-universal/assets/data/navigation',
+  todoApi: '/aspnetcore-material-universal/assets/data/todo/list.json',
+  mailApi: '/aspnetcore-material-universal/assets/data/mail/list.json',
+  chatsApi: '/aspnetcore-material-universal/assets/data/chats/list.json',
+  analysisApi: '/aspnetcore-material-universal/assets/data/analysis',
+  crmApi: '/aspnetcore-material-universal/assets/data/crm',
+  tableApi: '/aspnetcore-material-universal/assets/data/table'
 };

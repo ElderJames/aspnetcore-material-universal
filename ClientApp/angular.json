@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-material-app": {
+    "aspnetcore-material-universal": {
       "root": "src",
       "sourceRoot": "src",
       "projectType": "application",
@@ -26,7 +26,8 @@
               "src/assets/favicon.ico",
               "src/assets"
             ],
-            "styles": [{
+            "styles": [
+              {
                 "input": "node_modules/normalize.css/normalize.css",
                 "bundleName": "lib"
               },
@@ -46,10 +47,12 @@
               "extractCss": true
             },
             "github": {
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.github.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.github.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -61,10 +64,12 @@
               "buildOptimizer": true
             },
             "ngsw": {
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.ngsw.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.ngsw.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -76,10 +81,12 @@
               "buildOptimizer": true
             },
             "production": {
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -95,27 +102,27 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-material-app:build"
+            "browserTarget": "aspnetcore-material-universal:build"
           },
           "configurations": {
             "development": {
-              "browserTarget": "angular-material-app:build:development"
+              "browserTarget": "aspnetcore-material-universal:build:development"
             },
             "github": {
-              "browserTarget": "angular-material-app:build:github"
+              "browserTarget": "aspnetcore-material-universal:build:github"
             },
             "ngsw": {
-              "browserTarget": "angular-material-app:build:ngsw"
+              "browserTarget": "aspnetcore-material-universal:build:ngsw"
             },
             "production": {
-              "browserTarget": "angular-material-app:build:production"
+              "browserTarget": "aspnetcore-material-universal:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-material-app:build"
+            "browserTarget": "aspnetcore-material-universal:build"
           }
         },
         "test": {
@@ -165,7 +172,7 @@
             "production": {
               "optimization": false,
               "outputHashing": "media",
-              "sourceMap": false,
+              "sourceMap": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -175,7 +182,7 @@
         }
       }
     },
-    "angular-material-app-e2e": {
+    "aspnetcore-material-universal-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -183,7 +190,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-material-app:serve"
+            "devServerTarget": "aspnetcore-material-universal:serve"
           }
         },
         "lint": {
@@ -198,5 +205,5 @@
       }
     }
   },
-  "defaultProject": "angular-material-app"
+  "defaultProject": "aspnetcore-material-universal"
 }

@@ -7,10 +7,10 @@ export const environment = {
   production: false,
   firebase: {
     apiKey: 'AIzaSyAGcYsQtc9xqqEKstnoO3WasuZxJmKTwNc',
-    authDomain: 'angular-material-app-shriek.firebaseapp.com',
-    databaseURL: 'https://angular-material-app-shriek.firebaseio.com',
-    projectId: 'angular-material-app-shriek',
-    storageBucket: 'angular-material-app-shriek.appspot.com',
+    authDomain: 'aspnetcore-material-universal-shriek.firebaseapp.com',
+    databaseURL: 'https://aspnetcore-material-universal-shriek.firebaseio.com',
+    projectId: 'aspnetcore-material-universal-shriek',
+    storageBucket: 'aspnetcore-material-universal-shriek.appspot.com',
     messagingSenderId: '974351057659'
   },
   navigationApi: '/assets/data/navigation',

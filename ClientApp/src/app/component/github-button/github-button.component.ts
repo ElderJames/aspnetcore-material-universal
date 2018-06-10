@@ -21,7 +21,7 @@ export class GithubButtonComponent implements OnInit {
   }
 
   @Input() user: string = 'shriek';
-  @Input() repo: string = 'angular-material-app';
+  @Input() repo: string = 'aspnetcore-material-universal';
 
   readonly baseApi: string = 'https://api.github.com/repos';
   readonly baseUrl: string = 'https://github.com';

@@ -6,10 +6,10 @@
   "data": [
     {
       "id": 1,
-      "title": "angular-material-app",
-      "link": "https://github.com/shriek/angular-material-app",
+      "title": "aspnetcore-material-universal",
+      "link": "https://github.com/ElderJames/aspnetcore-material-universal",
       "description": "基于最新Angular 5框架与Material 2技术的企业级通用管理系统快速开发框架",
-      "link_github": "https://github.com/shriek/angular-material-app",
+      "link_github": "https://github.com/ElderJames/aspnetcore-material-universal",
       "tag": "",
       "image_link": "",
       "sort_order": 1,

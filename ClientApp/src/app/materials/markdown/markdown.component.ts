@@ -10,7 +10,7 @@ export class MarkdownComponent implements OnInit {
 
   markdown = '';
   source = `
-# angular-material-app
+# aspnetcore-material-universal
 
 基于最新Angular 4框架与Material2技术的企业级通用管理系统快速开发框架，涵盖了大量的常用组件和基础功能，您可以快速开发各种MIS系统，如CMS、OA、CRM、ERP、POS等，最大程度上帮助企业节省时间成本和费用开支。
 
