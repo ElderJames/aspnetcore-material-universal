@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreMaterialUniversal
 {
@@ -44,6 +45,8 @@ namespace AspNetCoreMaterialUniversal
 
             services.AddMemoryCache();
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -54,8 +57,6 @@ namespace AspNetCoreMaterialUniversal
             {
                 c.SwaggerDoc("v1", new Info { Title = "AspNetCoreSpa", Version = "v1" });
             });
-
-            services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -68,12 +69,11 @@ namespace AspNetCoreMaterialUniversal
                 app.UseDatabaseErrorPage();
             }
             else
-            {  
+            {
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
-                app.UseResponseCompression();
             }
-            
+
             app.UseHttpsRedirection();
 
             // https://github.com/openiddict/openiddict-core/issues/518
@@ -88,6 +88,8 @@ namespace AspNetCoreMaterialUniversal
 
             app.UseForwardedHeaders(forwarOptions);
             app.UseAuthentication();
+
+            app.UseResponseCompression();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
