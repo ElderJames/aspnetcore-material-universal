@@ -1,0 +1,31 @@
+<div class="page-layout">
+
+  <app-todo-header></app-todo-header>
+
+  <mat-sidenav-container>
+    <mat-sidenav class="sidenav" mode="side" align="start" opened="true">
+      <app-todo-sidenav></app-todo-sidenav>
+    </mat-sidenav>
+
+    <div class="center">
+
+      <div class="header" fxLayout="row" fxLayoutAlign="start center">
+        <shriek-search class="search" placeholder="搜索...">
+        </shriek-search>
+      </div>
+
+      <div class="content-card mat-white-bg mat-elevation-z7">
+
+        <app-todo-toolbar></app-todo-toolbar>
+
+        <app-todo-list>
+          <app-todo-item *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
+        </app-todo-list>
+
+      </div>
+
+    </div>
+
+  </mat-sidenav-container>
+
+</div>

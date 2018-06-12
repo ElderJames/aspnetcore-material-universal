@@ -6,8 +6,8 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'apps/navigation', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomeModule' },
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
+  { path: '', loadChildren: './home/home.module#HomeModule' },
   { path: 'sigin', component: SigninComponent },
   { path: 'sigup', component: SignupComponent },
   {
@@ -20,10 +20,10 @@ const routes: Routes = [
       },
       { path: 'apps/chats', loadChildren: './chats/chats.module#ChatsModule' },
       { path: 'apps/mail', loadChildren: './mail/mail.module#MailModule' },
-      // {
-      //   path: 'apps/todo/:filter',
-      //   loadChildren: './todo/todo.module#TodoModule'
-      // },
+      {
+        path: 'apps/todo/:filter',
+        loadChildren: './todo/todo.module#TodoModule'
+      },
       { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
       { path: 'forms', loadChildren: './forms/forms.module#FormModule' },
       {
