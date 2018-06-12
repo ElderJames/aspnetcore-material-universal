@@ -62,7 +62,7 @@ export class ValidationComponent implements OnInit {
 
   rebuildForm() {
     this.registerFrom.reset({
-      username: 'stbui'
+      username: 'shriek'
     });
   }
 

@@ -12,6 +12,8 @@ import { AdminModule } from './admin/admin.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { SignupComponent } from './pages/signup/signup.component';
+import { SigninComponent } from './pages/signin/signin.component';
 
 import { FireBaseComponentsModule } from './shared/firebase.module';
 
@@ -22,6 +24,8 @@ import { environment } from '../environments/environment';
   declarations: [
     AppComponent,
     DashboardComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule.withServerTransition({

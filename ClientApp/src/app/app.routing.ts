@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin/admin.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { SigninComponent } from './pages/signin/signin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'apps/navigation', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomeModule' },
+  { path: 'sigin', component: SigninComponent },
+  { path: 'sigup', component: SignupComponent },
   {
     path: '',
     component: AdminComponent,
@@ -26,7 +30,7 @@ const routes: Routes = [
         path: 'materials',
         loadChildren: './materials/materials.module#MaterialsModule'
       },
-      // { path: 'pages', loadChildren: './pages/pages.module#PagesModule' },
+      { path: 'pages', loadChildren: './pages/pages.module#PagesModule' },
       // {
       //   path: 'components/chart',
       //   loadChildren: './chart/chart.module#ChartModule'
