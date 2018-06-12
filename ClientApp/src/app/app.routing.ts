@@ -18,8 +18,8 @@ const routes: Routes = [
         path: 'apps/navigation',
         loadChildren: './navigation/navigation.module#NavigationModule'
       },
-      // { path: 'apps/chats', loadChildren: './chats/chats.module#ChatsModule' },
-      // { path: 'apps/mail', loadChildren: './mail/mail.module#MailModule' },
+      { path: 'apps/chats', loadChildren: './chats/chats.module#ChatsModule' },
+      { path: 'apps/mail', loadChildren: './mail/mail.module#MailModule' },
       // {
       //   path: 'apps/todo/:filter',
       //   loadChildren: './todo/todo.module#TodoModule'
@@ -39,12 +39,12 @@ const routes: Routes = [
       //   path: 'analysis',
       //   loadChildren: './analysis/analysis.module#AnalysisModule'
       // },
-      // { path: 'crm', loadChildren: './crm/crm.module#CrmModule' },
+      { path: 'crm', loadChildren: './crm/crm.module#CrmModule' },
       // { path: 'apm', loadChildren: './apm/apm.module#ApmModule' },
-      // {
-      //   path: 'page-layouts',
-      //   loadChildren: './page-layouts/page-layouts.module#PageLayoutsModule'
-      // }
+      {
+        path: 'page-layouts',
+        loadChildren: './page-layouts/page-layouts.module#PageLayoutsModule'
+      }
     ]
   }
 ];
