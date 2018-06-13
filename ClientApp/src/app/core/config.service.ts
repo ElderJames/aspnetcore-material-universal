@@ -11,9 +11,9 @@ export class ConfigService {
   constructor() {
     this.defaultSettings = {
       colorClasses: {
-        header: 'shriek-background-white',
-        footer: 'shriek-background-blue',
-        brand: 'shriek-background-blue',
+        header: 'shriek-background-pink',
+        footer: 'shriek-background-pink',
+        brand: 'shriek-background-pink',
         navigation: 'shriek-background-dark'
       },
       layout: {
