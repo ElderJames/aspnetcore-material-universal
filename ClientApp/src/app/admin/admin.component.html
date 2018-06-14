@@ -1,6 +1,6 @@
 <mat-sidenav-container [class.boxed]="layoutMode">
 
-  <mat-sidenav class="customizer" [position]="customizerSidenavAlign" mode="over" #customizer>
+  <mat-sidenav class="customizer" [position]="customizerSidenavAlign" mode="push" #customizer>
     <shriek-customizer></shriek-customizer>
   </mat-sidenav>
 
@@ -9,7 +9,7 @@
     <shriek-navigation [ngClass]="settings.colorClasses.navigation"></shriek-navigation>
   </mat-sidenav>
 
-  <div class="sidenav-container" fxLayout="column">
+  <mat-sidenav-content class="sidenav-container" fxLayout="column">
     <shriek-header [customizer]="customizer" [sidenav]="sidenav" [ngClass]="settings.colorClasses.header" *ngIf="settings.layout.header=='below'"></shriek-header>
 
     <div class="main-container" #scrollContainer>
@@ -17,6 +17,6 @@
     </div>
 
     <shriek-footer *ngIf="settings.layout.footer=='below'"></shriek-footer>
-  </div>
+  </mat-sidenav-content>
 
 </mat-sidenav-container>
