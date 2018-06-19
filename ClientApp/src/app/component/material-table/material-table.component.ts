@@ -25,8 +25,8 @@ export class MaterailTableComponent implements OnInit {
 
     isAllSelected() {
         const numSelected = this.selection.selected.length;
-        const numRows = this.dataSource.data.length;
-        return numSelected === numRows;
+        const pageSize = this.dataSource.paginator.pageSize;
+        return numSelected == pageSize;
     }
     /** Selects all rows if they are not all selected; otherwise clear selection. */
     masterToggle() {
