@@ -23,16 +23,24 @@ export class MaterailTableComponent implements OnInit {
         this.dataSource.sort = this.sort;
     }
 
+    isNoSelected() {
+        return !this.getCurrentPageRows().some(row => this.selection.selected.includes(row))
+    }
+
     isAllSelected() {
-        const numSelected = this.selection.selected.length;
-        const pageSize = this.dataSource.paginator.pageSize;
-        return numSelected == pageSize;
+        return !this.getCurrentPageRows().some(row => !this.selection.selected.includes(row));
     }
     /** Selects all rows if they are not all selected; otherwise clear selection. */
     masterToggle() {
         this.isAllSelected() ?
             this.selection.clear() :
-            this.dataSource.data.forEach(row => this.selection.select(row));
+            this.getCurrentPageRows().forEach(row => this.selection.select(row))
+    }
+
+    getCurrentPageRows(): PeriodicElement[] {
+        var index = this.dataSource.paginator.pageIndex;
+        var pagesize = this.dataSource.paginator.pageSize;
+        return Array.from({ length: pagesize }, (v, k) => k + index).map(index => this.dataSource.data[index]);
     }
 }
 

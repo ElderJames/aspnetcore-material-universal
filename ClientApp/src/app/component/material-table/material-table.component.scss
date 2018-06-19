@@ -1,6 +1,12 @@
 table {
   width: 100%;
 }
+
 th.mat-sort-header-sorted {
   color: black;
+}
+
+.material-table {
+  height: 296px;
+  overflow: auto;
 }
